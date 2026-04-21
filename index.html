@@ -1274,6 +1274,151 @@
     opacity:.5;
   }
 
+  /* ===== FLOATING WHATSAPP CTA ===== */
+  .float-cta{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    z-index:80;
+    font-family:var(--font-body);
+  }
+  .fc-toggle{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 22px 14px 18px;
+    background:var(--coral);
+    color:var(--cream);
+    border:1.5px solid rgba(243,231,207,.2);
+    border-radius:999px;
+    cursor:pointer;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    box-shadow:0 16px 30px -10px rgba(198,82,72,.7), 0 4px 10px rgba(0,0,0,.25);
+    transition:transform .3s ease, background .3s ease;
+    animation:fcPulse 2.6s ease-in-out infinite;
+  }
+  .fc-toggle:hover{background:var(--coral-deep);transform:translateY(-2px)}
+  .fc-toggle svg{width:20px;height:20px;flex-shrink:0}
+  @keyframes fcPulse{
+    0%,100%{box-shadow:0 16px 30px -10px rgba(198,82,72,.7), 0 4px 10px rgba(0,0,0,.25), 0 0 0 0 rgba(198,82,72,.5)}
+    50%{box-shadow:0 16px 30px -10px rgba(198,82,72,.7), 0 4px 10px rgba(0,0,0,.25), 0 0 0 14px rgba(198,82,72,0)}
+  }
+  .float-cta.open .fc-toggle{animation:none}
+
+  .fc-menu{
+    position:absolute;
+    bottom:calc(100% + 14px);
+    right:0;
+    width:340px;
+    max-width:calc(100vw - 48px);
+    background:var(--cream);
+    color:var(--ink);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.55), 0 0 0 1px rgba(20,20,20,.08);
+    opacity:0;
+    transform:translateY(14px) scale(.95);
+    transform-origin:bottom right;
+    transition:opacity .35s cubic-bezier(.2,.8,.2,1), transform .35s cubic-bezier(.2,.8,.2,1);
+    pointer-events:none;
+    overflow:hidden;
+  }
+  .float-cta.open .fc-menu{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+  .fc-header{
+    padding:22px 26px 18px;
+    background:var(--coral);
+    color:var(--cream);
+    position:relative;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(243,231,207,.08) 0 1px, transparent 1px 10px);
+  }
+  .fc-header .title{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:22px;
+    letter-spacing:.01em;
+    line-height:1.1;
+  }
+  .fc-header .title em{font-style:italic;font-weight:400;color:var(--gold-light)}
+  .fc-header .sub{
+    display:block;
+    font-family:var(--font-body);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    opacity:.85;
+    margin-top:6px;
+  }
+  .fc-close{
+    position:absolute;
+    top:10px;right:10px;
+    background:transparent;
+    border:none;
+    color:var(--cream);
+    cursor:pointer;
+    width:28px;height:28px;
+    display:flex;align-items:center;justify-content:center;
+    opacity:.75;
+    transition:opacity .2s ease;
+  }
+  .fc-close:hover{opacity:1}
+
+  .fc-options{display:flex;flex-direction:column}
+  .fc-option{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 26px;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid rgba(20,20,20,.08);
+    transition:background .3s ease;
+  }
+  .fc-option:last-child{border-bottom:none}
+  .fc-option:hover{background:rgba(198,82,72,.08)}
+  .fc-option .icon{
+    width:42px;height:42px;
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--coral);
+    color:var(--cream);
+    border-radius:50%;
+  }
+  .fc-option .icon svg{width:20px;height:20px}
+  .fc-option .txt strong{
+    display:block;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:17px;
+    letter-spacing:.01em;
+    line-height:1.1;
+  }
+  .fc-option .txt small{
+    display:block;
+    font-family:var(--font-body);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-top:4px;
+  }
+
+  @media (max-width:720px){
+    .float-cta{bottom:16px;right:16px}
+    .fc-toggle{padding:12px 18px;font-size:12px;letter-spacing:.12em}
+    .fc-toggle .label-long{display:none}
+    .fc-menu{width:calc(100vw - 32px)}
+  }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width:860px){
     nav{padding:12px 16px}
@@ -1312,7 +1457,7 @@
     <li><a href="#bebidas">Bebidas</a></li>
     <li><a href="#itinerario">Itinerario</a></li>
   </ul>
-  <a href="tel:+34615364886" class="nav-cta">Reservas</a>
+  <a href="https://wa.me/34615364886?text=Hola%2C%20quer%C3%ADa%20reservar%20en%20La%20Inquieta" target="_blank" rel="noopener" class="nav-cta">Reservas</a>
 </nav>
 
 <!-- HERO -->
@@ -1482,7 +1627,7 @@
     <div class="contact-transport">
       <div>
         <div class="label">Reservas Autobuses</div>
-        <a href="tel:+34601162254">+34 601 16 22 54</a>
+        <a href="https://wa.me/34601162254?text=Hola%2C%20quer%C3%ADa%20reservar%20asiento%20en%20el%20autob%C3%BAs%20de%20La%20Inquieta" target="_blank" rel="noopener">+34 601 16 22 54</a>
       </div>
       <div class="row">
         <span class="pill">Plazas limitadas</span>
@@ -1758,11 +1903,11 @@
   <div class="contact-grid">
     <div>
       <h4>Reservados y Mesas</h4>
-      <a href="tel:+34615364886">+34 615 36 48 86</a>
+      <a href="https://wa.me/34615364886?text=Hola%2C%20quer%C3%ADa%20reservar%20en%20La%20Inquieta" target="_blank" rel="noopener">+34 615 36 48 86</a>
     </div>
     <div>
       <h4>Autobuses</h4>
-      <a href="tel:+34601162254">+34 601 16 22 54</a>
+      <a href="https://wa.me/34601162254?text=Hola%2C%20quer%C3%ADa%20reservar%20asiento%20en%20el%20autob%C3%BAs%20de%20La%20Inquieta" target="_blank" rel="noopener">+34 601 16 22 54</a>
     </div>
     <div>
       <h4>Ubicación</h4>
@@ -1772,6 +1917,65 @@
 
   <div class="fine">Inquieto Grupo · Feria de Jerez · Del 9 al 16 de Mayo 2026</div>
 </footer>
+
+<!-- FLOATING WHATSAPP CTA -->
+<div class="float-cta" id="floatCta">
+  <div class="fc-menu">
+    <div class="fc-header">
+      <button class="fc-close" aria-label="Cerrar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="title"><em>No</em> lo pienses más</div>
+      <span class="sub">Reserva tu pulsera o asiento</span>
+    </div>
+    <div class="fc-options">
+      <a class="fc-option" href="https://wa.me/34601162254?text=Hola%2C%20quer%C3%ADa%20reservar%20asiento%20en%20el%20autob%C3%BAs%20de%20La%20Inquieta" target="_blank" rel="noopener">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M4 17V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10M7 17v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2M20 17v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-2M7 11h10"/></svg>
+        </div>
+        <div class="txt">
+          <strong>Asiento en el bus</strong>
+          <small>Reservas autobuses</small>
+        </div>
+      </a>
+      <a class="fc-option" href="https://wa.me/34615364886?text=Hola%2C%20quer%C3%ADa%20reservar%20pulsera%20o%20mesa%20en%20La%20Inquieta" target="_blank" rel="noopener">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="7" ry="4"/><ellipse cx="12" cy="12" rx="9.5" ry="6" opacity=".4"/><path d="M9 13l2 1.5L15 11"/></svg>
+        </div>
+        <div class="txt">
+          <strong>Pulsera o Reservado</strong>
+          <small>Caseta La Inquieta</small>
+        </div>
+      </a>
+    </div>
+  </div>
+  <button class="fc-toggle" id="fcToggle" aria-label="Reservar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 0 0 5.684 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"/></svg>
+    <span class="label-long">Reserva ahora</span>
+  </button>
+</div>
+
+<script>
+(() => {
+  const fc = document.getElementById('floatCta');
+  const toggle = document.getElementById('fcToggle');
+  const close = fc.querySelector('.fc-close');
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    fc.classList.toggle('open');
+  });
+  close.addEventListener('click', e => {
+    e.stopPropagation();
+    fc.classList.remove('open');
+  });
+  document.addEventListener('click', e => {
+    if (!fc.contains(e.target)) fc.classList.remove('open');
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') fc.classList.remove('open');
+  });
+})();
+</script>
 
 </body>
 </html>
