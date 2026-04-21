@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Inquieta · Caseta Nº154 · Feria de Jerez 2026</title>
+<meta name="description" content="La Inquieta — Caseta Nº154 en la Feria de Jerez 2026. Del 9 al 16 de mayo. Autobuses, bebidas y toda la info de Sol de Fiesta · Luna de Fiesta.">
+<meta property="og:title" content="La Inquieta · Feria de Jerez 2026">
+<meta property="og:description" content="Caseta Nº154 · Del 9 al 16 de mayo · Sol de Fiesta · Luna de Fiesta">
+<meta property="og:image" content="./assets/cartel.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Yanone+Kaffeesatz:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep: #0d4a42;
+    --teal: #13625a;
+    --teal-light: #1b776c;
+    --cream: #f3e7cf;
+    --cream-soft: #efe1c4;
+    --cream-warm: #ead5b0;
+    --coral: #c65248;
+    --coral-deep: #a83e36;
+    --ink: #141414;
+    --gold: #c89b4a;
+    --gold-light: #e0bf80;
+    --font-display: 'Fontuna', 'Playfair Display', 'Didot', 'Bodoni 72', serif;
+    --font-body: 'Yanone Kaffeesatz', 'Inter', sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    background:var(--cream);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:50;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 32px;
+    background:rgba(13,74,66,.92);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    color:var(--cream);
+    border-bottom:1px solid rgba(200,155,74,.2);
+  }
+  nav .brand{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:.05em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  nav .brand em{font-style:italic;font-weight:400;color:var(--gold-light)}
+  nav .brand::before{
+    content:'';width:8px;height:8px;background:var(--coral);border-radius:50%;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:28px;
+    font-size:15px;
+    font-weight:500;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  nav ul a{
+    color:var(--cream);
+    text-decoration:none;
+    padding:6px 0;
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, color .3s ease;
+  }
+  nav ul a:hover{color:var(--gold-light);border-color:var(--gold)}
+  .nav-cta{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--coral);
+    color:var(--cream);
+    padding:8px 18px;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:background .3s ease, transform .3s ease;
+  }
+  .nav-cta:hover{background:var(--coral-deep);transform:translateY(-1px)}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    background:var(--teal);
+    color:var(--cream);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    padding:120px 100px 80px;
+    overflow:hidden;
+  }
+
+  .hero-pattern{
+    position:absolute;inset:0;
+    background-image:url('./assets/patron-fondo.svg');
+    background-size:540px auto;
+    background-repeat:repeat;
+    background-position:top center;
+    background-attachment:fixed;
+    opacity:.85;
+    pointer-events:none;
+  }
+
+  .hero-cartel{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:560px;
+    height:auto;
+    display:block;
+    animation:fadeUp 1.2s cubic-bezier(.2,.8,.2,1) both;
+  }
+
+  /* FIXED side strips — no tiling seams ever */
+  .side-strip{
+    position:fixed;
+    top:0;bottom:0;
+    width:50px;
+    background-image:url('./assets/lateral.svg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:top center;
+    z-index:30;
+    pointer-events:none;
+  }
+  .side-strip.left{left:0}
+  .side-strip.right{right:0;transform:scaleX(-1)}
+  @media (max-width:860px){
+    .hero{padding:100px 50px 80px;gap:22px}
+    .hero-cartel{max-width:360px}
+    .hero-phone{font-size:13px;padding:12px 18px;letter-spacing:.12em;text-align:center}
+    .side-strip{width:22px}
+  }
+
+  .arch-wrap{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:640px;
+    animation:fadeUp 1.2s cubic-bezier(.2,.8,.2,1) both;
+  }
+
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(32px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+
+  /* Moorish ogee arch shape — rendered with SVG clip + borders */
+  .arch{
+    position:relative;
+    background:var(--cream);
+    color:var(--ink);
+    padding:40px 44px 24px;
+    /* ogee arch top via clip-path */
+    clip-path:path('M 0 60 Q 0 0 50 0 Q 100 0 140 20 Q 180 0 220 0 Q 260 0 280 30 Q 300 0 320 0 Q 340 0 360 30 Q 380 0 420 0 Q 460 0 500 20 Q 540 0 590 0 Q 640 0 640 60 L 640 900 L 0 900 Z');
+  }
+
+  /* Using SVG as arch background instead for crisp arch */
+  .arch-svg{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    z-index:0;
+    pointer-events:none;
+  }
+
+  .arch-content{
+    position:relative;
+    z-index:1;
+    padding:40px 56px 44px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .caseta-top{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    margin-top:50px;
+    margin-bottom:24px;
+  }
+  @media (max-width:720px){
+    .arch-content{padding:28px 28px 32px}
+    .caseta-top{margin-top:32px;margin-bottom:16px}
+  }
+  .caseta-top .kicker{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:10px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:var(--ink);
+  }
+  .caseta-top .num{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:42px;
+    letter-spacing:.02em;
+    line-height:1;
+    color:var(--ink);
+  }
+  .rives-badge{
+    background:#173a8a;
+    color:#fff;
+    font-family:var(--font-display);
+    font-weight:900;
+    letter-spacing:.18em;
+    font-size:11px;
+    padding:5px 14px 4px;
+    border:1px solid var(--gold);
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.15);
+    margin-top:4px;
+  }
+
+  .feria-label{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.35em;
+    color:var(--teal);
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+
+  .hero-title{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(52px, 10vw, 104px);
+    line-height:.9;
+    letter-spacing:-.01em;
+    color:var(--ink);
+  }
+  .hero-title .a{font-style:italic;font-weight:300}
+
+  .sol-luna{
+    display:flex;
+    gap:40px;
+    margin-top:16px;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:400;
+    font-size:15px;
+    letter-spacing:.2em;
+    color:var(--teal);
+    text-transform:uppercase;
+  }
+  .sol-luna span{display:flex;align-items:center;gap:8px}
+  .sol-luna svg{width:14px;height:14px;opacity:.7}
+
+  .hero-photo{
+    width:100%;
+    max-width:340px;
+    margin:16px auto 24px;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+  }
+  .hero-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+  }
+  @media (max-width:720px){
+    .hero-photo{max-width:260px}
+  }
+
+  .hero-info-row{
+    display:grid;
+    grid-template-columns:1.2fr auto auto;
+    gap:0;
+    align-items:stretch;
+    width:calc(100% + 20px);
+    margin:0 -10px;
+    border:1.5px solid var(--ink);
+  }
+  .hero-info-row > div{
+    padding:14px 16px;
+    border-right:1.5px solid var(--ink);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+  }
+  .hero-info-row > div:last-child{border-right:none}
+
+  .dates-block .top-line{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:.04em;
+    color:var(--ink);
+    line-height:1;
+  }
+  .dates-block .sub-line{
+    font-family:var(--font-body);
+    font-weight:500;
+    font-size:10px;
+    letter-spacing:.25em;
+    color:var(--teal);
+    margin-top:6px;
+    text-transform:uppercase;
+  }
+
+  .year-block{
+    background:var(--cream);
+  }
+  .year-block .yr{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:38px;
+    letter-spacing:-.02em;
+    color:var(--coral-deep);
+    line-height:1;
+  }
+
+  .grupo-block img{
+    width:100%;
+    max-width:110px;
+    height:auto;
+    display:block;
+  }
+
+  .reservas-bar{
+    margin-top:14px;
+    width:calc(100% + 20px);
+    margin-left:-10px;margin-right:-10px;
+    border:1.5px solid var(--ink);
+    padding:12px 16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:.12em;
+    color:var(--ink);
+    text-transform:uppercase;
+  }
+  .reservas-bar a{
+    color:var(--coral-deep);
+    text-decoration:none;
+    font-weight:800;
+    letter-spacing:.05em;
+    transition:color .3s ease;
+  }
+  .reservas-bar a:hover{color:var(--coral)}
+
+  .scroll-hint{
+    position:absolute;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    color:var(--gold-light);
+    font-family:var(--font-body);
+    font-size:10px;
+    letter-spacing:.4em;
+    text-transform:uppercase;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    opacity:.7;
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{transform:translate(-50%,0)}
+    50%{transform:translate(-50%,-6px)}
+  }
+
+  /* ===== SECTIONS GENERAL ===== */
+  section.page{
+    position:relative;
+    padding:120px 100px;
+    overflow:hidden;
+  }
+  @media (max-width:720px){
+    section.page{padding:80px 40px}
+  }
+
+  .container{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+
+  .section-head{
+    text-align:center;
+    margin-bottom:64px;
+  }
+  .section-head .eyebrow{
+    display:inline-block;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:11px;
+    letter-spacing:.4em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border:1px solid currentColor;
+    opacity:.7;
+    margin-bottom:18px;
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(42px, 6vw, 68px);
+    letter-spacing:-.01em;
+    line-height:1;
+  }
+  .section-head h2 em{font-style:italic;font-weight:400}
+  .section-head p{
+    max-width:560px;
+    margin:18px auto 0;
+    font-size:15px;
+    line-height:1.6;
+    opacity:.8;
+  }
+
+  /* ===== TRANSPORTE ===== */
+  .transporte{
+    background:var(--teal);
+    color:var(--cream);
+  }
+  .transporte::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:url('./assets/patron-fondo.svg');
+    background-size:540px auto;
+    background-repeat:repeat;
+    background-position:top center;
+    background-attachment:fixed;
+    opacity:.6;
+    pointer-events:none;
+  }
+
+  .transporte .section-head .eyebrow{color:var(--gold-light);border-color:var(--gold)}
+
+  .bus-showcase{
+    margin:0 auto 52px;
+    max-width:720px;
+    display:flex;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .bus-showcase img{
+    width:100%;
+    height:auto;
+    animation:busRoll 1.4s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes busRoll{
+    from{opacity:0;transform:translateX(-18%)}
+    to{opacity:1;transform:translateX(0)}
+  }
+
+  .prices-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:40px;
+  }
+
+  .price-card{
+    background:var(--coral);
+    color:var(--cream);
+    padding:28px 28px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:16px;
+    position:relative;
+    overflow:hidden;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .price-card.dark{background:var(--coral-deep)}
+  .price-card:hover{transform:translateY(-4px)}
+  .price-card::after{
+    content:'';
+    position:absolute;inset:0;
+    background:linear-gradient(135deg, rgba(255,255,255,.12), transparent 40%);
+    pointer-events:none;
+  }
+  .price-card .tier{
+    font-family:var(--font-body);
+    font-weight:600;
+    letter-spacing:.18em;
+    font-size:11px;
+    text-transform:uppercase;
+    opacity:.85;
+  }
+  .price-card .name{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:28px;
+    letter-spacing:.01em;
+    line-height:1.05;
+    margin-top:4px;
+  }
+  .price-card .name em{font-style:italic;font-weight:400}
+  .price-card .extra{
+    font-family:var(--font-body);
+    font-weight:400;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-top:6px;
+    opacity:.85;
+  }
+  .price-card .amount{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:60px;
+    line-height:1;
+    letter-spacing:-.02em;
+  }
+  .price-card .amount .cur{font-size:38px;vertical-align:top}
+  .price-card .amount .from{
+    display:block;
+    font-family:var(--font-body);
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:.25em;
+    text-align:right;
+    margin-bottom:-4px;
+    opacity:.8;
+  }
+
+  .schedule-grid{
+    background:var(--cream);
+    color:var(--ink);
+    padding:44px 44px 40px;
+    position:relative;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.4);
+  }
+  .schedule-grid::before{
+    content:'CALENDARIO DE RUTAS';
+    position:absolute;
+    top:-13px;left:50%;
+    transform:translateX(-50%);
+    background:var(--teal-deep);
+    color:var(--gold-light);
+    font-family:var(--font-body);
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.4em;
+    padding:7px 18px;
+  }
+
+  .days{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px 44px;
+  }
+
+  .day{
+    padding-bottom:24px;
+    border-bottom:1px dashed rgba(20,20,20,.15);
+    transition:transform .4s ease;
+  }
+  .day:nth-last-child(-n+2){border-bottom:none;padding-bottom:0}
+  .day:hover{transform:translateX(4px)}
+
+  .day-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:12px;
+  }
+  .day-num{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:62px;
+    line-height:.9;
+    color:var(--ink);
+    letter-spacing:-.02em;
+  }
+  .day-name{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-style:italic;
+    font-size:34px;
+    color:var(--coral-deep);
+    letter-spacing:.01em;
+    line-height:1;
+  }
+  .day-note{
+    display:block;
+    font-family:var(--font-body);
+    font-weight:500;
+    font-style:normal;
+    font-size:11px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    margin-top:6px;
+  }
+
+  .routes{display:flex;flex-direction:column;gap:8px}
+  .route{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:14px;
+    align-items:center;
+  }
+  .route .path{
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:rgba(20,20,20,.78);
+  }
+  .route .time{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:.02em;
+    color:var(--coral-deep);
+    white-space:nowrap;
+  }
+
+  .contact-transport{
+    margin-top:32px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:24px 32px;
+    border:1px solid rgba(200,155,74,.3);
+    background:rgba(13,74,66,.4);
+  }
+  .contact-transport .label{
+    font-family:var(--font-body);
+    font-weight:500;
+    font-size:11px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+  }
+  .contact-transport .row{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .contact-transport a{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:22px;
+    color:var(--cream);
+    text-decoration:none;
+    letter-spacing:.02em;
+    transition:color .3s ease;
+  }
+  .contact-transport a:hover{color:var(--gold-light)}
+  .contact-transport .pill{
+    font-family:var(--font-body);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.25em;
+    padding:6px 12px;
+    border:1px solid var(--coral);
+    color:var(--coral);
+    text-transform:uppercase;
+  }
+
+  /* ===== BEBIDAS ===== */
+  .bebidas{
+    background:var(--cream);
+    color:var(--ink);
+  }
+  .bebidas::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:url('./assets/patron-fondo.svg');
+    background-size:540px auto;
+    background-repeat:repeat;
+    background-position:top center;
+    background-attachment:fixed;
+    opacity:.08;
+    mix-blend-mode:multiply;
+    pointer-events:none;
+  }
+  .bebidas .section-head .eyebrow{color:var(--teal);border-color:var(--teal)}
+
+  /* ===== PULSERA FEATURE ===== */
+  .pulsera-feature{
+    position:relative;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:28px;
+    align-items:center;
+    padding:28px 36px;
+    background:var(--coral);
+    color:var(--cream);
+    margin-bottom:40px;
+    border:1px solid var(--coral-deep);
+    overflow:hidden;
+    animation:pulseShine 5s ease-in-out infinite;
+  }
+  .pulsera-feature::before{
+    content:'';
+    position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(45deg, rgba(243,231,207,.05) 0 1px, transparent 1px 14px),
+      repeating-linear-gradient(-45deg, rgba(243,231,207,.05) 0 1px, transparent 1px 14px);
+    pointer-events:none;
+  }
+  .pulsera-feature > *{position:relative;z-index:1}
+  @keyframes pulseShine{
+    0%,100%{box-shadow:0 0 0 0 rgba(200,155,74,0)}
+    50%{box-shadow:0 0 0 6px rgba(200,155,74,.15)}
+  }
+
+  .pf-icon{
+    width:72px;height:72px;
+    display:flex;align-items:center;justify-content:center;
+    border:1.5px solid rgba(243,231,207,.5);
+    border-radius:50%;
+    background:rgba(243,231,207,.08);
+  }
+  .pf-icon svg{width:38px;height:38px;color:var(--cream)}
+
+  .pf-text .tag{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    opacity:.85;
+    margin-bottom:4px;
+    display:block;
+  }
+  .pf-text h3{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:28px;
+    letter-spacing:.01em;
+    line-height:1.1;
+  }
+  .pf-text h3 em{font-style:italic;font-weight:400;color:var(--gold-light)}
+  .pf-text p{
+    margin-top:6px;
+    font-size:14px;
+    opacity:.85;
+    line-height:1.4;
+    letter-spacing:.02em;
+  }
+
+  .pf-price{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:4px;
+    padding-left:24px;
+    border-left:1px solid rgba(243,231,207,.25);
+  }
+  .pf-price .unit{
+    font-family:var(--font-body);
+    font-size:11px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    opacity:.75;
+  }
+  .pf-price .amount{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:56px;
+    line-height:1;
+    letter-spacing:-.02em;
+  }
+
+  @media (max-width:720px){
+    .pulsera-feature{grid-template-columns:1fr;text-align:center;gap:18px;padding:24px 22px}
+    .pf-icon{margin:0 auto}
+    .pf-price{align-items:center;padding:16px 0 0;border-left:none;border-top:1px solid rgba(243,231,207,.25)}
+    .pf-text h3{font-size:22px}
+  }
+
+  .drinks-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+
+  .drink-card{
+    position:relative;
+    background:var(--teal);
+    color:var(--cream);
+    padding:44px 32px 36px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    border:1px solid rgba(200,155,74,.25);
+    transition:transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s;
+  }
+  .drink-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 30px 50px -20px rgba(13,74,66,.5);
+  }
+  .drink-card.featured{
+    background:var(--coral);
+    border-color:var(--coral-deep);
+  }
+  .drink-card::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(200,155,74,.08) 0 1px, transparent 1px 18px),
+      repeating-linear-gradient(-45deg, rgba(200,155,74,.08) 0 1px, transparent 1px 18px);
+    pointer-events:none;
+  }
+  .drink-card > *{position:relative;z-index:1}
+
+  .drink-illu{
+    width:100px;
+    height:120px;
+    margin-bottom:24px;
+  }
+  .drink-illu svg{width:100%;height:100%}
+
+  .drink-qty{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:400;
+    font-size:14px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    opacity:.85;
+    margin-bottom:4px;
+  }
+  .drink-name{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:30px;
+    letter-spacing:.01em;
+    line-height:1.1;
+  }
+  .drink-name em{font-style:italic;font-weight:400}
+  .drink-divider{
+    width:40px;
+    height:1px;
+    background:rgba(243,231,207,.4);
+    margin:18px 0;
+  }
+  .drink-price{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:64px;
+    letter-spacing:-.02em;
+    line-height:1;
+  }
+  .drink-price .cur{font-size:40px;vertical-align:top;opacity:.9}
+  .drink-tag{
+    margin-top:14px;
+    font-family:var(--font-body);
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border:1px solid rgba(243,231,207,.3);
+    opacity:.9;
+  }
+  .drink-card.featured .drink-tag{border-color:rgba(243,231,207,.5)}
+
+  .drinks-note{
+    margin-top:40px;
+    text-align:center;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:15px;
+    color:var(--teal-deep);
+    letter-spacing:.02em;
+    opacity:.8;
+  }
+
+  /* ===== ITINERARIO ===== */
+  .itinerario{
+    background:var(--teal-deep);
+    color:var(--cream);
+  }
+  .itinerario::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:url('./assets/patron-fondo.svg');
+    background-size:540px auto;
+    background-repeat:repeat;
+    background-position:top center;
+    background-attachment:fixed;
+    opacity:.5;
+    pointer-events:none;
+  }
+  .itinerario .section-head .eyebrow{color:var(--gold-light);border-color:var(--gold)}
+
+  .timeline{
+    position:relative;
+    max-width:720px;
+    margin:0 auto;
+    padding-left:60px;
+  }
+  .timeline::before{
+    content:'';
+    position:absolute;
+    left:20px;top:0;bottom:0;
+    width:2px;
+    background:linear-gradient(to bottom, transparent, var(--gold) 10%, var(--gold) 90%, transparent);
+    opacity:.5;
+  }
+
+  .tl-item{
+    position:relative;
+    padding:20px 28px 24px;
+    margin-bottom:14px;
+    background:rgba(19,98,90,.4);
+    border:1px solid rgba(200,155,74,.2);
+    transition:all .4s ease;
+  }
+  .tl-item:hover{
+    background:rgba(19,98,90,.6);
+    border-color:var(--coral);
+    transform:translateX(6px);
+  }
+  .tl-item::before{
+    content:'';
+    position:absolute;
+    left:-48px;top:28px;
+    width:16px;height:16px;
+    border-radius:50%;
+    background:var(--coral);
+    border:3px solid var(--teal-deep);
+    box-shadow:0 0 0 2px var(--gold);
+  }
+
+  .tl-date{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:6px;
+  }
+  .tl-day{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:42px;
+    line-height:1;
+    letter-spacing:-.02em;
+  }
+  .tl-weekday{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:400;
+    font-size:22px;
+    color:var(--gold-light);
+    letter-spacing:.04em;
+  }
+  .tl-theme{
+    font-family:var(--font-body);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--coral);
+    margin-bottom:10px;
+  }
+  .tl-desc{
+    font-size:14px;
+    line-height:1.6;
+    opacity:.85;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--ink);
+    color:var(--cream);
+    padding:60px 100px 30px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  @media (max-width:720px){
+    footer{padding:50px 40px 30px}
+  }
+  footer::before{
+    content:'';
+    position:absolute;
+    top:0;left:50%;transform:translateX(-50%);
+    width:80px;height:1px;
+    background:var(--gold);
+  }
+  footer .brand-big{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:48px;
+    letter-spacing:.02em;
+    line-height:1;
+  }
+  footer .brand-big em{font-style:italic;font-weight:300}
+  footer .tagline{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:14px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-top:10px;
+    opacity:.8;
+  }
+  footer .contact-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    max-width:760px;
+    margin-left:auto;margin-right:auto;
+    text-align:left;
+  }
+  footer .contact-grid h4{
+    font-family:var(--font-body);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:8px;
+  }
+  footer .contact-grid p, footer .contact-grid a{
+    font-family:var(--font-display);
+    font-size:16px;
+    color:var(--cream);
+    text-decoration:none;
+    letter-spacing:.02em;
+    display:block;
+    line-height:1.4;
+  }
+  footer .contact-grid a:hover{color:var(--coral)}
+  footer .fine{
+    margin-top:40px;
+    padding-top:24px;
+    border-top:1px solid rgba(243,231,207,.12);
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    opacity:.5;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:860px){
+    nav{padding:12px 16px}
+    nav ul{display:none}
+    .hero{padding:100px 16px 80px}
+    .arch-content{padding:24px 22px 28px}
+    .hero-title{font-size:56px}
+    .sol-luna{gap:20px;font-size:12px}
+    .hero-info-row{grid-template-columns:1fr;width:100%;margin:0}
+    .hero-info-row > div{border-right:none;border-bottom:1.5px solid var(--ink)}
+    .hero-info-row > div:last-child{border-bottom:none}
+    .reservas-bar{width:100%;margin-left:0;margin-right:0;font-size:13px;flex-direction:column;gap:4px}
+    section.page{padding:80px 20px}
+    .prices-row{grid-template-columns:1fr}
+    .schedule-grid{padding:32px 22px}
+    .days{grid-template-columns:1fr;gap:24px}
+    .drinks-grid{grid-template-columns:1fr;gap:16px}
+    .contact-transport{flex-direction:column;text-align:center}
+    .timeline{padding-left:40px}
+    .tl-item::before{left:-32px;width:12px;height:12px;top:24px}
+    footer .contact-grid{grid-template-columns:1fr;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDE STRIPS (fixed, global — no tiling seams) -->
+<div class="side-strip left" aria-hidden="true"></div>
+<div class="side-strip right" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="brand"><em>La</em> Inquieta</div>
+  <ul>
+    <li><a href="#transporte">Transporte</a></li>
+    <li><a href="#bebidas">Bebidas</a></li>
+    <li><a href="#itinerario">Itinerario</a></li>
+  </ul>
+  <a href="tel:+34615364886" class="nav-cta">Reservas</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-pattern" aria-hidden="true"></div>
+
+  <img class="hero-cartel" src="./assets/cartel-hero.svg" alt="La Inquieta · Feria de Jerez 2026 · Caseta Nº154">
+
+  <div class="scroll-hint">
+    Desliza
+    <svg width="12" height="20" viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v14M2 12l4 4 4-4"/></svg>
+  </div>
+</header>
+
+<!-- TRANSPORTE -->
+<section id="transporte" class="page transporte">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Los Autobuses</span>
+      <h2><em>Transporte</em> seguro<br>a la caseta</h2>
+      <p>Ida y vuelta desde Cádiz, Puerto Real, Chiclana, San Fernando y El Puerto de Santa María. Conductor contratado, plazas limitadas y copa incluida en el pack completo.</p>
+    </div>
+
+    <div class="bus-showcase">
+      <img src="./assets/autobus.svg" alt="Autobús La Inquieta">
+    </div>
+
+    <div class="prices-row">
+      <div class="price-card">
+        <div>
+          <div class="tier">Pack completo</div>
+          <div class="name">Ida <em>y</em> Vuelta</div>
+          <div class="extra">+ Copa · Plazas limitadas</div>
+        </div>
+        <div class="amount">
+          <span class="from">desde</span>
+          19<span class="cur">€</span>
+        </div>
+      </div>
+      <div class="price-card dark">
+        <div>
+          <div class="tier">Trayecto único</div>
+          <div class="name">Ida <em>o</em> Vuelta</div>
+          <div class="extra">Sencillo al mejor precio</div>
+        </div>
+        <div class="amount">
+          <span class="from">desde</span>
+          10<span class="cur">€</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="schedule-grid">
+      <div class="days">
+        <div class="day">
+          <div class="day-head">
+            <span class="day-num">9</span>
+            <span class="day-name">Sábado</span>
+          </div>
+          <div class="routes">
+            <div class="route"><span class="path">Cádiz · Pto. Real</span><span class="time">21:00 — 05:30</span></div>
+            <div class="route"><span class="path">Chiclana · San Fernando</span><span class="time">22:00 — 05:45</span></div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="day-num">10</span>
+            <span class="day-name">Domingo</span>
+          </div>
+          <div class="routes">
+            <div class="route"><span class="path">Cádiz · Pto. Real</span><span class="time">21:30 — 04:30</span></div>
+            <div class="route"><span class="path">Chiclana · San Fernando</span><span class="time">21:30 — 04:30</span></div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="day-num">13</span>
+            <span class="day-name">Miércoles<span class="day-note">Día de la Mujer</span></span>
+          </div>
+          <div class="routes">
+            <div class="route"><span class="path">Chiclana · San Fernando</span><span class="time">17:30 — 02:30</span></div>
+            <div class="route"><span class="path">Cádiz · Pto. Real</span><span class="time">18:00 — 03:00</span></div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="day-head">
+            <span class="day-num">15</span>
+            <span class="day-name">Viernes</span>
+          </div>
+          <div class="routes">
+            <div class="route"><span class="path">Cádiz · Pto. Real · Pto. Sta. María</span><span class="time">21:30 — 05:30</span></div>
+            <div class="route"><span class="path">San Fernando · Chiclana</span><span class="time">19:00 — 04:00</span></div>
+          </div>
+        </div>
+
+        <div class="day" style="grid-column:1 / -1">
+          <div class="day-head">
+            <span class="day-num">16</span>
+            <span class="day-name">Sábado</span>
+          </div>
+          <div class="routes">
+            <div class="route"><span class="path">Cádiz · San Fernando · Pto. Real</span><span class="time">20:00 — 04:00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-transport">
+      <div>
+        <div class="label">Reservas Autobuses</div>
+        <a href="tel:+34601162254">+34 601 16 22 54</a>
+      </div>
+      <div class="row">
+        <span class="pill">Plazas limitadas</span>
+        <span class="pill">Copa incluida</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEBIDAS -->
+<section id="bebidas" class="page bebidas">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Packs de Bebida</span>
+      <h2>Barra <em>libre</em> a tu medida</h2>
+      <p>Elige el pack que mejor encaje con tu grupo. Todas las bebidas son para tu mesa, servidas a la hora que las pidas. Rebujito sobre marca Tío Pepe.</p>
+    </div>
+
+    <div class="pulsera-feature">
+      <div class="pf-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="20" cy="20" rx="12" ry="8"/>
+          <ellipse cx="20" cy="20" rx="16" ry="11" opacity=".45"/>
+          <path d="M14 19 L18 22 L26 16" stroke-width="2.2"/>
+        </svg>
+      </div>
+      <div class="pf-text">
+        <span class="tag">Pulsera de la Caseta</span>
+        <h3>4€ que te descuentan <em>1€ en cada bebida</em></h3>
+        <p>Cómprala a la entrada. Se amortiza desde la primera consumición y sirve para todas las copas y jarras de la noche.</p>
+      </div>
+      <div class="pf-price">
+        <span class="unit">Solo</span>
+        <span class="amount">4€</span>
+      </div>
+    </div>
+
+    <div class="drinks-grid">
+
+      <!-- Rebujito -->
+      <div class="drink-card">
+        <div class="drink-illu">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- jug -->
+            <path d="M25 30 L25 100 Q25 110 40 110 L65 110 Q80 110 80 100 L80 30 Z" fill="rgba(243,231,207,.15)" stroke="#f3e7cf" stroke-width="2"/>
+            <!-- rim -->
+            <ellipse cx="52.5" cy="30" rx="27.5" ry="5" fill="none" stroke="#f3e7cf" stroke-width="2"/>
+            <!-- handle -->
+            <path d="M80 45 Q92 50 92 65 Q92 80 80 85" fill="none" stroke="#f3e7cf" stroke-width="2"/>
+            <!-- liquid -->
+            <path d="M28 50 L28 98 Q28 107 40 107 L65 107 Q77 107 77 98 L77 50 Z" fill="#e0bf80" opacity=".6"/>
+            <!-- mint leaf -->
+            <ellipse cx="45" cy="42" rx="5" ry="3" fill="#1b776c" transform="rotate(-20 45 42)"/>
+            <ellipse cx="55" cy="40" rx="4" ry="2.5" fill="#1b776c" transform="rotate(15 55 40)"/>
+          </svg>
+        </div>
+        <div class="drink-qty">4 Jarras</div>
+        <div class="drink-name"><em>Rebujito</em></div>
+        <div class="drink-divider"></div>
+        <div class="drink-price">40<span class="cur">€</span></div>
+        <div class="drink-tag">Tío Pepe + 7UP</div>
+      </div>
+
+      <!-- 4 copas -->
+      <div class="drink-card featured">
+        <div class="drink-illu">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- glass -->
+            <path d="M20 20 Q20 60 45 68 L45 100 L30 108 L70 108 L55 100 L55 68 Q80 60 80 20 Z" fill="rgba(243,231,207,.15)" stroke="#f3e7cf" stroke-width="2"/>
+            <!-- liquid -->
+            <path d="M25 30 Q28 55 50 62 Q72 55 75 30 Z" fill="#f3e7cf" opacity=".5"/>
+            <!-- bubbles -->
+            <circle cx="38" cy="45" r="2" fill="#f3e7cf" opacity=".8"/>
+            <circle cx="58" cy="40" r="1.5" fill="#f3e7cf" opacity=".8"/>
+            <circle cx="48" cy="52" r="1.2" fill="#f3e7cf" opacity=".8"/>
+            <circle cx="62" cy="50" r="1" fill="#f3e7cf" opacity=".6"/>
+          </svg>
+        </div>
+        <div class="drink-qty">4 Copas</div>
+        <div class="drink-name">Pack <em>Esencial</em></div>
+        <div class="drink-divider"></div>
+        <div class="drink-price">25<span class="cur">€</span></div>
+        <div class="drink-tag">Más popular</div>
+      </div>
+
+      <!-- 6 copas -->
+      <div class="drink-card">
+        <div class="drink-illu">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- two glasses -->
+            <g>
+              <path d="M10 22 Q10 52 30 58 L30 90 L20 95 L40 95 L35 90 L35 58 Q50 52 50 22 Z" fill="rgba(243,231,207,.15)" stroke="#f3e7cf" stroke-width="2"/>
+              <path d="M13 30 Q16 48 30 54 Q45 48 48 30 Z" fill="#f3e7cf" opacity=".5"/>
+            </g>
+            <g transform="translate(40,10)">
+              <path d="M10 22 Q10 52 30 58 L30 90 L20 95 L40 95 L35 90 L35 58 Q50 52 50 22 Z" fill="rgba(243,231,207,.15)" stroke="#f3e7cf" stroke-width="2"/>
+              <path d="M13 30 Q16 48 30 54 Q45 48 48 30 Z" fill="#f3e7cf" opacity=".5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="drink-qty">6 Copas</div>
+        <div class="drink-name">Pack <em>Grupo</em></div>
+        <div class="drink-divider"></div>
+        <div class="drink-price">48<span class="cur">€</span></div>
+        <div class="drink-tag">Mejor precio/copa</div>
+      </div>
+
+    </div>
+
+    <p class="drinks-note">Todos los packs se sirven en mesa · Consulta extras y reservados al +34 615 36 48 86</p>
+  </div>
+</section>
+
+<!-- ITINERARIO -->
+<section id="itinerario" class="page itinerario">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Programación</span>
+      <h2><em>Itinerario</em> de feria</h2>
+      <p>Siete noches — y sus mañanas — de Sol de Fiesta y Luna de Fiesta en la Caseta Nº154. Esto es lo que cada día te espera.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date"><span class="tl-day">9</span><span class="tl-weekday">Sábado</span></div>
+        <div class="tl-theme">Apertura · Inauguración</div>
+        <p class="tl-desc">Arrancamos la feria. DJ resident desde media tarde, animación en vivo y los primeros rebujitos en la barra. Autobuses desde Cádiz y Chiclana.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><span class="tl-day">10</span><span class="tl-weekday">Domingo</span></div>
+        <div class="tl-theme">Día Familiar · Tarde Flamenca</div>
+        <p class="tl-desc">Ambiente relajado con música en directo y sesión vermut. Ideal para cerrar el fin de semana con los tuyos.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><span class="tl-day">11</span><span class="tl-weekday">Lunes</span></div>
+        <div class="tl-theme">Lunes de Pescaíto</div>
+        <p class="tl-desc">Cocina abierta, fino y buena compañía. Sesión DJ suave para calentar la semana grande.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><span class="tl-day">12</span><span class="tl-weekday">Martes</span></div>
+        <div class="tl-theme">Martes Inquieto</div>
+        <p class="tl-desc">Actuación en directo y ambiente más gamberro. La luna de fiesta empieza a tomar forma.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><span class="tl-day">13</span><span class="tl-weekday">Miércoles</span></div>
+        <div class="tl-theme">Día de la Mujer · Rebajado</div>
+        <p class="tl-desc">Tarde especial dedicada al Día de la Mujer. Entrada a partir de las 17:30, música en directo y promociones en barra.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><span class="tl-day">14</span><span class="tl-weekday">Jueves</span></div>
+        <div class="tl-theme">Noche Joven</div>
+        <p class="tl-desc">DJ invitado, animación hasta el cierre. Pulseras 4€ para acceder sin cola.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><span class="tl-day">15</span><span class="tl-weekday">Viernes</span></div>
+        <div class="tl-theme">Viernes de Feria Grande</div>
+        <p class="tl-desc">Cartel completo: DJ + actuación en directo + animación. Autobuses ampliadas desde El Puerto de Santa María.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><span class="tl-day">16</span><span class="tl-weekday">Sábado</span></div>
+        <div class="tl-theme">Cierre · Fin de Fiesta</div>
+        <p class="tl-desc">Última noche. Ruta combinada Cádiz · San Fernando · Pto. Real de vuelta y despedida por todo lo alto hasta las 04:00.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand-big"><em>La</em> Inquieta</div>
+  <div class="tagline">Sol de Fiesta · Luna de Fiesta</div>
+
+  <div class="contact-grid">
+    <div>
+      <h4>Reservados y Mesas</h4>
+      <a href="tel:+34615364886">+34 615 36 48 86</a>
+    </div>
+    <div>
+      <h4>Autobuses</h4>
+      <a href="tel:+34601162254">+34 601 16 22 54</a>
+    </div>
+    <div>
+      <h4>Ubicación</h4>
+      <p>Caseta Nº154<br>Feria de Jerez 2026</p>
+    </div>
+  </div>
+
+  <div class="fine">Inquieto Grupo · Feria de Jerez · Del 9 al 16 de Mayo 2026</div>
+</footer>
+
+</body>
+</html>
