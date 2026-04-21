@@ -150,10 +150,9 @@
   .side-strip.left{left:0}
   .side-strip.right{right:0;transform:scaleX(-1)}
   @media (max-width:860px){
-    .hero{padding:100px 50px 80px;gap:22px}
+    .hero{padding:100px 24px 80px;gap:22px}
     .hero-cartel{max-width:360px}
-    .hero-phone{font-size:13px;padding:12px 18px;letter-spacing:.12em;text-align:center}
-    .side-strip{width:22px}
+    .side-strip{display:none}
   }
 
   .arch-wrap{
@@ -987,12 +986,66 @@
     letter-spacing:.3em;
     text-transform:uppercase;
     color:var(--coral);
-    margin-bottom:10px;
+    margin-bottom:14px;
   }
-  .tl-desc{
-    font-size:14px;
-    line-height:1.6;
-    opacity:.85;
+
+  .tl-slots{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin-top:10px;
+  }
+  .tl-slot{
+    display:grid;
+    grid-template-columns:minmax(130px, auto) 1fr minmax(auto, 180px);
+    gap:20px;
+    align-items:baseline;
+    padding:10px 0;
+    border-top:1px dashed rgba(224,191,128,.22);
+  }
+  .tl-slot:first-child{border-top:none;padding-top:4px}
+  .tl-time{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:18px;
+    color:var(--gold-light);
+    letter-spacing:.02em;
+    white-space:nowrap;
+  }
+  .tl-show{
+    font-family:var(--font-body);
+    font-size:15px;
+    font-weight:500;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:rgba(243,231,207,.92);
+  }
+  .tl-artist{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:15px;
+    color:var(--coral);
+    text-align:right;
+    letter-spacing:.01em;
+  }
+  .tl-artist:empty::before{
+    content:'— por confirmar —';
+    color:rgba(243,231,207,.35);
+    font-style:italic;
+    font-size:12px;
+    letter-spacing:.1em;
+  }
+
+  .tl-item.inauguracion{
+    border-color:var(--coral);
+    background:linear-gradient(135deg, rgba(198,82,72,.18), rgba(19,98,90,.4));
+  }
+  .tl-item.inauguracion::before{background:var(--gold-light);box-shadow:0 0 0 2px var(--coral)}
+  .tl-item.inauguracion .tl-theme{color:var(--gold-light)}
+
+  @media (max-width:720px){
+    .tl-slot{grid-template-columns:1fr;gap:2px;padding:12px 0}
+    .tl-artist{text-align:left}
   }
 
   /* ===== FOOTER ===== */
@@ -1346,53 +1399,133 @@
     </div>
 
     <div class="timeline">
-      <div class="tl-item">
+
+      <div class="tl-item inauguracion">
         <div class="tl-date"><span class="tl-day">9</span><span class="tl-weekday">Sábado</span></div>
-        <div class="tl-theme">Apertura · Inauguración</div>
-        <p class="tl-desc">Arrancamos la feria. DJ resident desde media tarde, animación en vivo y los primeros rebujitos en la barra. Autobuses desde Cádiz y Chiclana.</p>
+        <div class="tl-theme">Inauguración · Apertura de Feria</div>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <span class="tl-time">Noche</span>
+            <span class="tl-show">Animaciones Especiales</span>
+            <span class="tl-artist"></span>
+          </div>
+        </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-date"><span class="tl-day">10</span><span class="tl-weekday">Domingo</span></div>
-        <div class="tl-theme">Día Familiar · Tarde Flamenca</div>
-        <p class="tl-desc">Ambiente relajado con música en directo y sesión vermut. Ideal para cerrar el fin de semana con los tuyos.</p>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <span class="tl-time">16:00 — 21:00</span>
+            <span class="tl-show">Animador + DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+          <div class="tl-slot">
+            <span class="tl-time">21:00 — 05:00</span>
+            <span class="tl-show">DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+        </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-date"><span class="tl-day">11</span><span class="tl-weekday">Lunes</span></div>
-        <div class="tl-theme">Lunes de Pescaíto</div>
-        <p class="tl-desc">Cocina abierta, fino y buena compañía. Sesión DJ suave para calentar la semana grande.</p>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <span class="tl-time">16:00 — 21:00</span>
+            <span class="tl-show">Animador + DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+          <div class="tl-slot">
+            <span class="tl-time">21:00 — 05:00</span>
+            <span class="tl-show">DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+        </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-date"><span class="tl-day">12</span><span class="tl-weekday">Martes</span></div>
-        <div class="tl-theme">Martes Inquieto</div>
-        <p class="tl-desc">Actuación en directo y ambiente más gamberro. La luna de fiesta empieza a tomar forma.</p>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <span class="tl-time">16:00 — 21:00</span>
+            <span class="tl-show">Animador + DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+          <div class="tl-slot">
+            <span class="tl-time">21:00 — 05:00</span>
+            <span class="tl-show">DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+        </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-date"><span class="tl-day">13</span><span class="tl-weekday">Miércoles</span></div>
-        <div class="tl-theme">Día de la Mujer · Rebajado</div>
-        <p class="tl-desc">Tarde especial dedicada al Día de la Mujer. Entrada a partir de las 17:30, música en directo y promociones en barra.</p>
+        <div class="tl-theme">Día de la Mujer</div>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <span class="tl-time">16:00 — 21:00</span>
+            <span class="tl-show">Animador + DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+          <div class="tl-slot">
+            <span class="tl-time">21:00 — 05:00</span>
+            <span class="tl-show">DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+        </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-date"><span class="tl-day">14</span><span class="tl-weekday">Jueves</span></div>
-        <div class="tl-theme">Noche Joven</div>
-        <p class="tl-desc">DJ invitado, animación hasta el cierre. Pulseras 4€ para acceder sin cola.</p>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <span class="tl-time">16:00 — 21:00</span>
+            <span class="tl-show">Animador + DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+          <div class="tl-slot">
+            <span class="tl-time">21:00 — 05:00</span>
+            <span class="tl-show">DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+        </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-date"><span class="tl-day">15</span><span class="tl-weekday">Viernes</span></div>
-        <div class="tl-theme">Viernes de Feria Grande</div>
-        <p class="tl-desc">Cartel completo: DJ + actuación en directo + animación. Autobuses ampliadas desde El Puerto de Santa María.</p>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <span class="tl-time">16:00 — 21:00</span>
+            <span class="tl-show">Animador + DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+          <div class="tl-slot">
+            <span class="tl-time">21:00 — 05:00</span>
+            <span class="tl-show">DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+        </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-date"><span class="tl-day">16</span><span class="tl-weekday">Sábado</span></div>
-        <div class="tl-theme">Cierre · Fin de Fiesta</div>
-        <p class="tl-desc">Última noche. Ruta combinada Cádiz · San Fernando · Pto. Real de vuelta y despedida por todo lo alto hasta las 04:00.</p>
+        <div class="tl-theme">Cierre de Feria</div>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <span class="tl-time">16:00 — 21:00</span>
+            <span class="tl-show">Animador + DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+          <div class="tl-slot">
+            <span class="tl-time">21:00 — 05:00</span>
+            <span class="tl-show">DJ</span>
+            <span class="tl-artist"></span>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
