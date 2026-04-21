@@ -477,76 +477,109 @@
     to{opacity:1;transform:translateX(0)}
   }
 
-  .prices-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
+  .price-table{
+    background:var(--cream);
+    color:var(--ink);
     margin-bottom:40px;
-  }
-
-  .price-card{
-    background:var(--coral);
-    color:var(--cream);
-    padding:28px 28px;
-    display:grid;
-    grid-template-columns:1fr auto;
-    align-items:center;
-    gap:16px;
-    position:relative;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.4);
     overflow:hidden;
-    transition:transform .5s cubic-bezier(.2,.8,.2,1);
   }
-  .price-card.dark{background:var(--coral-deep)}
-  .price-card:hover{transform:translateY(-4px)}
-  .price-card::after{
-    content:'';
-    position:absolute;inset:0;
-    background:linear-gradient(135deg, rgba(255,255,255,.12), transparent 40%);
-    pointer-events:none;
+  .pt-row{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    align-items:stretch;
+    border-top:1px solid rgba(20,20,20,.1);
   }
-  .price-card .tier{
+  .pt-row.pt-header{
+    background:var(--teal-deep);
+    color:var(--gold-light);
+    border-top:none;
+  }
+  .pt-cell{
+    padding:22px 26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border-right:1px solid rgba(20,20,20,.08);
+  }
+  .pt-header .pt-cell{
+    border-right:1px solid rgba(200,155,74,.2);
+  }
+  .pt-cell:last-child{border-right:none}
+  .pt-head{
     font-family:var(--font-body);
+    font-size:12px;
     font-weight:600;
-    letter-spacing:.18em;
-    font-size:11px;
+    letter-spacing:.3em;
     text-transform:uppercase;
-    opacity:.85;
+    color:var(--gold-light);
+    align-items:center;
+    justify-content:center;
+    text-align:center;
   }
-  .price-card .name{
+  .pt-tipo{
     font-family:var(--font-display);
     font-weight:700;
-    font-size:28px;
+    font-size:22px;
     letter-spacing:.01em;
-    line-height:1.05;
-    margin-top:4px;
+    color:var(--ink);
   }
-  .price-card .name em{font-style:italic;font-weight:400}
-  .price-card .extra{
-    font-family:var(--font-body);
-    font-weight:400;
-    font-size:11px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    margin-top:6px;
-    opacity:.85;
-  }
-  .price-card .amount{
-    font-family:var(--font-display);
-    font-weight:900;
-    font-size:60px;
-    line-height:1;
-    letter-spacing:-.02em;
-  }
-  .price-card .amount .cur{font-size:38px;vertical-align:top}
-  .price-card .amount .from{
+  .pt-tipo em{font-style:italic;font-weight:400;color:var(--coral-deep)}
+  .pt-tipo small{
     display:block;
     font-family:var(--font-body);
-    font-size:10px;
+    font-size:11px;
     font-weight:500;
-    letter-spacing:.25em;
-    text-align:right;
-    margin-bottom:-4px;
-    opacity:.8;
+    font-style:normal;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-top:4px;
+  }
+  .pt-price{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transition:background .3s ease;
+  }
+  .pt-price .amount{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:36px;
+    line-height:1;
+    letter-spacing:-.01em;
+    color:var(--ink);
+  }
+  .pt-price .amount .cur{font-size:22px;vertical-align:top;opacity:.8}
+  .pt-featured{
+    background:var(--coral);
+    color:var(--cream);
+    position:relative;
+  }
+  .pt-featured .amount{color:var(--cream)}
+  .pt-featured::after{
+    content:'Más pedido';
+    position:absolute;
+    top:6px;
+    right:8px;
+    font-family:var(--font-body);
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--cream);
+    opacity:.85;
+  }
+
+  @media (max-width:720px){
+    .pt-row{grid-template-columns:1.2fr 1fr 1fr}
+    .pt-cell{padding:16px 12px}
+    .pt-tipo{font-size:16px}
+    .pt-tipo small{font-size:9px;letter-spacing:.15em}
+    .pt-price .amount{font-size:26px}
+    .pt-price .amount .cur{font-size:16px}
+    .pt-head{font-size:10px;letter-spacing:.2em}
+    .pt-featured::after{font-size:7px;top:3px;right:4px}
   }
 
   .schedule-grid{
@@ -752,23 +785,42 @@
     letter-spacing:.35em;
     text-transform:uppercase;
     opacity:.85;
-    margin-bottom:4px;
+    margin-bottom:6px;
     display:block;
   }
   .pf-text h3{
     font-family:var(--font-display);
     font-weight:700;
-    font-size:28px;
+    font-size:26px;
     letter-spacing:.01em;
     line-height:1.1;
+    margin-bottom:14px;
   }
   .pf-text h3 em{font-style:italic;font-weight:400;color:var(--gold-light)}
-  .pf-text p{
-    margin-top:6px;
-    font-size:14px;
-    opacity:.85;
-    line-height:1.4;
-    letter-spacing:.02em;
+
+  .pf-benefits{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin:0;
+    padding:0;
+  }
+  .pf-benefits li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:var(--font-body);
+    font-size:16px;
+    font-weight:500;
+    letter-spacing:.06em;
+    color:var(--cream);
+  }
+  .pf-benefits li svg{
+    flex-shrink:0;
+    width:20px;
+    height:20px;
+    color:var(--gold-light);
   }
 
   .pf-price{
@@ -1189,27 +1241,37 @@
       <img src="./assets/autobus.svg" alt="Autobús La Inquieta">
     </div>
 
-    <div class="prices-row">
-      <div class="price-card">
-        <div>
-          <div class="tier">Pack completo</div>
-          <div class="name">Ida <em>y</em> Vuelta</div>
-          <div class="extra">+ Copa · Plazas limitadas</div>
+    <div class="price-table">
+      <div class="pt-row pt-header">
+        <div class="pt-cell pt-head">Trayecto</div>
+        <div class="pt-cell pt-head">Con Copa</div>
+        <div class="pt-cell pt-head">Sin Copa</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-cell pt-tipo">Ida <em>y</em> Vuelta<small>Pack completo</small></div>
+        <div class="pt-cell pt-price pt-featured">
+          <span class="amount">19<span class="cur">€</span></span>
         </div>
-        <div class="amount">
-          <span class="from">desde</span>
-          19<span class="cur">€</span>
+        <div class="pt-cell pt-price">
+          <span class="amount">16<span class="cur">€</span></span>
         </div>
       </div>
-      <div class="price-card dark">
-        <div>
-          <div class="tier">Trayecto único</div>
-          <div class="name">Ida <em>o</em> Vuelta</div>
-          <div class="extra">Sencillo al mejor precio</div>
+      <div class="pt-row">
+        <div class="pt-cell pt-tipo">Solo ida<small>Un trayecto</small></div>
+        <div class="pt-cell pt-price">
+          <span class="amount">15<span class="cur">€</span></span>
         </div>
-        <div class="amount">
-          <span class="from">desde</span>
-          10<span class="cur">€</span>
+        <div class="pt-cell pt-price">
+          <span class="amount">10<span class="cur">€</span></span>
+        </div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-cell pt-tipo">Solo vuelta<small>Un trayecto</small></div>
+        <div class="pt-cell pt-price">
+          <span class="amount">15<span class="cur">€</span></span>
+        </div>
+        <div class="pt-cell pt-price">
+          <span class="amount">10<span class="cur">€</span></span>
         </div>
       </div>
     </div>
@@ -1290,8 +1352,8 @@
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Packs de Bebida</span>
-      <h2>Barra <em>libre</em> a tu medida</h2>
-      <p>Elige el pack que mejor encaje con tu grupo. Todas las bebidas son para tu mesa, servidas a la hora que las pidas. Rebujito sobre marca Tío Pepe.</p>
+      <h2><em>Ahorra</em> en tus copas</h2>
+      <p>Elige el pack que mejor encaje con tu grupo. Todas las bebidas son para tu mesa, servidas a la hora que las pidas.</p>
     </div>
 
     <div class="pulsera-feature">
@@ -1304,8 +1366,21 @@
       </div>
       <div class="pf-text">
         <span class="tag">Pulsera de la Caseta</span>
-        <h3>4€ que te descuentan <em>1€ en cada bebida</em></h3>
-        <p>Cómprala a la entrada. Se amortiza desde la primera consumición y sirve para todas las copas y jarras de la noche.</p>
+        <h3>La pulsera que lo hace <em>todo más fácil</em></h3>
+        <ul class="pf-benefits">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><strong>1€ menos</strong> en cada copa y rebujito</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><strong>Acceso prioritario</strong> sin cola</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span><strong>Descuento</strong> en reservados</span>
+          </li>
+        </ul>
       </div>
       <div class="pf-price">
         <span class="unit">Solo</span>
@@ -1336,7 +1411,7 @@
         <div class="drink-name"><em>Rebujito</em></div>
         <div class="drink-divider"></div>
         <div class="drink-price">40<span class="cur">€</span></div>
-        <div class="drink-tag">Tío Pepe + 7UP</div>
+        <div class="drink-tag">Para compartir</div>
       </div>
 
       <!-- 4 copas -->
