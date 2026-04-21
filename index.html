@@ -461,11 +461,89 @@
   .transporte .section-head .eyebrow{color:var(--gold-light);border-color:var(--gold)}
 
   .bus-showcase{
-    margin:0 auto 52px;
+    margin:0 auto 40px;
     max-width:720px;
     display:flex;
     justify-content:center;
     overflow:hidden;
+  }
+
+  /* ===== PICKUP POINTS ===== */
+  .pickup{
+    margin-bottom:44px;
+    position:relative;
+  }
+  .pickup-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:20px;
+    font-family:var(--font-body);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.4em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+  }
+  .pickup-head::before,
+  .pickup-head::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:rgba(200,155,74,.3);
+  }
+
+  .pickup-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+  }
+  .pickup-point{
+    background:rgba(13,74,66,.45);
+    border:1px solid rgba(200,155,74,.25);
+    padding:22px 22px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:border-color .3s ease, transform .3s ease, background .3s ease;
+  }
+  .pickup-point:hover{
+    border-color:var(--coral);
+    background:rgba(13,74,66,.65);
+    transform:translateY(-3px);
+  }
+  .pickup-icon{
+    width:32px;height:32px;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    color:var(--gold-light);
+  }
+  .pickup-icon svg{width:16px;height:16px}
+  .pickup-city{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:24px;
+    letter-spacing:.01em;
+    color:var(--cream);
+    line-height:1;
+    margin-top:2px;
+  }
+  .pickup-places{
+    font-family:var(--font-body);
+    font-size:15px;
+    font-weight:400;
+    line-height:1.3;
+    color:rgba(243,231,207,.78);
+    letter-spacing:.04em;
+  }
+  .pickup-places span{display:block}
+
+  @media (max-width:860px){
+    .pickup-grid{grid-template-columns:repeat(2, 1fr)}
+  }
+  @media (max-width:480px){
+    .pickup-grid{grid-template-columns:1fr}
   }
   .bus-showcase img{
     width:100%;
@@ -1239,6 +1317,52 @@
 
     <div class="bus-showcase">
       <img src="./assets/autobus.svg" alt="Autobús La Inquieta">
+    </div>
+
+    <div class="pickup">
+      <div class="pickup-head">Puntos de Salida</div>
+      <div class="pickup-grid">
+        <div class="pickup-point">
+          <div class="pickup-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="pickup-city">Cádiz</span>
+          <div class="pickup-places">
+            <span>Renfe · Plaza Sevilla</span>
+            <span>Hospital</span>
+          </div>
+        </div>
+
+        <div class="pickup-point">
+          <div class="pickup-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="pickup-city">San Fernando</span>
+          <div class="pickup-places">
+            <span>C.C. Plaza</span>
+          </div>
+        </div>
+
+        <div class="pickup-point">
+          <div class="pickup-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="pickup-city">Puerto Real</span>
+          <div class="pickup-places">
+            <span>Rotonda escultura Airbus</span>
+          </div>
+        </div>
+
+        <div class="pickup-point">
+          <div class="pickup-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="pickup-city">Chiclana</span>
+          <div class="pickup-places">
+            <span>Multicines Salinas</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="price-table">
